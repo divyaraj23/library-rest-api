@@ -2,13 +2,16 @@ import sqlite3
 from sqlite3.dbapi2 import Cursor, connect
 import datetime
 
+#Helpful in updating the latest activity
 currentDateTime = datetime.datetime.now()
 
+#Database connection subroutine
 def db_connect():
     connection = sqlite3.connect('library.db',detect_types=sqlite3.PARSE_DECLTYPES |
                              sqlite3.PARSE_COLNAMES)
     return connection
 
+#Tables with the proper Entity relationship created here
 def initialize_db_tables():
     try:
         conn = db_connect()
@@ -34,6 +37,7 @@ def initialize_db_tables():
     finally:
         conn.close()
 
+# Basic function to search a book by its name
 def get_book_by_name(book_name):
     book = {}
     try:
@@ -53,6 +57,7 @@ def get_book_by_name(book_name):
         book = {}
 
     return book
+
 
 def get_book_by_id(book_id):
     book = {}
@@ -128,7 +133,7 @@ def get_library_book_id(library_book):
     return book
 
 
-
+#Adds books to the books table
 def add_book(book):
     created_book = {}
     try:
@@ -147,6 +152,7 @@ def add_book(book):
 
     return created_book
 
+#adds new libraries to the libraries table
 def add_library(library):
     created_library = {}
     try:
@@ -166,6 +172,7 @@ def add_library(library):
         
     return created_library
 
+#adds new users
 def add_user(user):
     user_created = {}
     try:
@@ -185,6 +192,7 @@ def add_user(user):
     
     return user_created
 
+#adds books from the books tables to the library to be ready for borrowing
 def add_book_to_library(add_book_lib):
     book_added = {}
     try:
@@ -211,6 +219,7 @@ def add_book_to_library(add_book_lib):
     
     return book_added
 
+#Checkout a book
 def checkout_book(checkout):
     checked_book = {}
     try:
@@ -253,7 +262,7 @@ def checkout_book(checkout):
     finally:
         conn.close()
 
-
+#Check in a checkedout book
 def checkin_book(checkin):
     checked_book = {}
     try:

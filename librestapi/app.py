@@ -13,14 +13,17 @@ from db import checkin_book
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
+#API descriptions in readme.md
 @app.route('/libapi/books/search_book/<book_name>', methods=['GET'])
 def api_get_bookbyname(book_name):
     return jsonify(get_book_by_name(book_name))
+
 
 @app.route('/libapi/books/add_book', methods=['POST'])
 def api_add_book():
     book = request.get_json(force=True)
     return jsonify(add_book(book))
+
 
 @app.route('/libapi/library/add_library', methods=['POST'])
 def api_add_library():
