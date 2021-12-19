@@ -255,6 +255,7 @@ def checkout_book(checkout):
                 ))
 
                 conn.commit()
+                
     except Exception as e:
         print (str(e))
         conn.rollback()
@@ -273,7 +274,6 @@ def checkin_book(checkin):
         ))
         row = cur.fetchone()
         if row:
-            print (row)
             checked_book['library_book_id'] = row[0]
         else:
             return "book or library not present/library doesn't have the book"
@@ -291,6 +291,7 @@ def checkin_book(checkin):
                 ))
                 
                 conn.commit()   
+                
             else:
                return "Check if the correct user is returning the book"
 
