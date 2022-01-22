@@ -1,4 +1,5 @@
 # Library Management System REST API:
+### Update 1/23/2022: Upgraded to SQLAlchemy ORm for database operations. Streamlined the project structure
 
 This is a lightweight API written in Flask and a SQLite3 database
 Through this API, following are the routes/endpoints and the things you can do with them.
