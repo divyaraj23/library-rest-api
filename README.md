@@ -74,7 +74,7 @@ user
 ## Testing, wasn't able to create pytest scripts due to time constraints , had created one fixture.
 
 ## Improvements:
-1. Usage of SQLAlchemy for the database interactions, more control, more versatility and ease of formatting.
+1. Usage of SQLAlchemy for the database interactions, more control, more versatility and ease of formatting.[Implemented]
 2. Appending JWT headers to the JSON payloads being sent to the REST API for authentication.
 
 ## Product owner questions:
